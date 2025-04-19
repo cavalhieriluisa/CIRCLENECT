@@ -1,0 +1,91 @@
+/* Removendo a regra overflow-x para tabelas fora do modo responsivo */
+.container {
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    overflow: hidden; /* Garantindo que não haja scroll */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word; /* Evita o texto ultrapassar os limites das células */
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    /* Formulário de Adicionar Material */
+    #material_form_section {
+        width: 100%;
+        padding: 20px;
+        font-size: 1.2rem;
+    }
+
+    #material_form input,
+    #material_form select,
+    #material_form textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.1rem; /* Aumentando o tamanho da fonte */
+    }
+
+    #material_form button {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+
+    /* Tabela de Materiais */
+    .container {
+        width: 100%;
+        margin: 20px 0;
+        padding: 15px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 1rem;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        font-size: 1rem;
+    }
+
+    th {
+        font-size: 1.2rem;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    td, th {
+        word-wrap: break-word;
+    }
+}

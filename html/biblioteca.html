@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/essencial.css">
+    <link rel="icon" type="image/png" href="../img/logo2.png">
+    <title>CIRCLENECT</title>
+    <style>
+
+        #mobile_btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            #nav_list {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            #nav_list.active {
+                display: flex;
+            }
+
+            #mobile_btn {
+                display: block;
+            }
+        }
+        section {
+            height: 100vh; 
+            font-size: larger;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .explicacao {
+    max-width: 800px;
+    margin: 10px auto 20px;
+    padding: 10px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    background-color: aliceblue;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+  }
+
+  @media (max-width: 768px) {
+    .explicacao {
+      padding: 8px;
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .explicacao {
+      font-size: 0.9rem;
+    }
+  }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <img src="../img/logo.png" alt="Logo" id="nav_logo" style="height: 100px;">
+            <span style="font-size: 1.5rem; color: antiquewhite;">CIRCLENECT</span>
+
+            <ul id="nav_list">
+                <li class="nav-item"><a href="telaprincipal.php">Início</a></li>
+                <li class="nav-item"><a href="materiais.php">Materiais</a></li>
+                <li class="nav-item"><a href="notificacoes.php">Notificações</a></li>
+                <li class="nav-item"><a href="biblioteca.html">Biblioteca de Resíduos</a></li>
+            </ul>
+
+            <button id="login_button" class="btn-default">
+                <a href="index.html" style="color: inherit; text-decoration: none;">Sair</a>
+            </button>
+
+            <button id="mobile_btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav-item"><a href="telaprincipal.php">Início</a></li>
+                <li class="nav-item"><a href="materiais.php">Materiais</a></li>
+                <li class="nav-item"><a href="notificacoes.php">Notificações</a></li>
+                <li class="nav-item"><a href="biblioteca.html">Biblioteca de Resíduos</a></li>
+            </ul>
+            <button id="login_button" class="btn-default">
+                <a href="index.html" style="color: inherit; text-decoration: none;">Sair</a>
+            </button>
+        </div>
+    </header>
+    <main style="padding: 20px;">
+        <h2 style="text-align: center; margin-bottom: 20px;">Biblioteca de Resíduos</h2>
+        <p class="explicacao">
+            Esta biblioteca de resíduos é um catálogo que reúne informações sobre diversos tipos de materiais descartados por empresas. Seu objetivo é facilitar a reutilização, reciclagem e o reaproveitamento desses materiais por outras instituições ou pessoas interessadas.
+          </p>
+        <div style="overflow-x:auto;">
+           <!-- Tabela Härnösand -->
+<table>
+    <h3 style="text-align: center; margin-bottom: 20px;">Tabela I - Análise de estudo de caso de Simbiose Industrial em Härnösand</h3>
+    <thead>
+        <tr><th>Tipo de Resíduo</th><th>Origem</th><th>Destino</th><th>Tipo de Reaproveitamento</th></tr>
+    </thead>
+    <tbody>
+        <tr><td data-label="Tipo de Resíduo">Resíduos lignocelulósicos</td><td data-label="Origem">Fabricante de madeira, celulose e papel</td><td data-label="Destino">Fabricante de produtos à base de insetos</td><td data-label="Tipo de Reaproveitamento">Produtos</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Resíduos sólidos urbanos</td><td data-label="Origem">Empresa de saneamento e eletricidade</td><td data-label="Destino">Fabricante de produtos à base de insetos</td><td data-label="Tipo de Reaproveitamento">Alimentação de insetos</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Resíduos sólidos urbanos</td><td data-label="Origem">Empresa de saneamento e eletricidade</td><td data-label="Destino">Produtor de vegetais e peixes</td><td data-label="Tipo de Reaproveitamento">Biofertilizantes</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Excremento de insetos</td><td data-label="Origem">Fabricante de produtos à base de insetos</td><td data-label="Destino">Produtor de vegetais e peixes</td><td data-label="Tipo de Reaproveitamento">Fertilizante e bioestimulante</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Insetos</td><td data-label="Origem">Fabricante de produtos à base de insetos</td><td data-label="Destino">Produtor de vegetais e peixes</td><td data-label="Tipo de Reaproveitamento">Ração para peixes</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Colheitas rejeitadas ou danificadas</td><td data-label="Origem">Produtor de vegetais e peixes</td><td data-label="Destino">Produtor artesanal de gim</td><td data-label="Tipo de Reaproveitamento">Produção de etanol</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Grãos gastos</td><td data-label="Origem">Produtor artesanal de gim</td><td data-label="Destino">Produtor de vegetais e peixes</td><td data-label="Tipo de Reaproveitamento">Ração e fertilizante</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Vidro</td><td data-label="Origem">Indústria química</td><td data-label="Destino">Indústria de vidro</td><td data-label="Tipo de Reaproveitamento">Reciclagem de vidro</td></tr>
+    </tbody>
+</table>
+
+<!-- Tabela Colômbia -->
+<table>
+    <h3 style="text-align: center; margin-bottom: 20px;">Simbiose Industrial na Colômbia</h3>
+    <thead>
+        <tr><th>Tipo de Resíduo</th><th>Origem</th><th>Destino</th><th>Tipo de Reaproveitamento</th></tr>
+    </thead>
+    <tbody>
+        <tr><td data-label="Tipo de Resíduo">Resíduos de café</td><td data-label="Origem">Fabricante de café</td><td data-label="Destino">Criação de aves</td><td data-label="Tipo de Reaproveitamento">Ração</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Madeira</td><td data-label="Origem">Indústria de laticínios</td><td data-label="Destino">Fabricante de material de construção</td><td data-label="Tipo de Reaproveitamento">Reutilização para construção</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Isopor</td><td data-label="Origem">Construtora</td><td data-label="Destino">Fabricante de material de construção</td><td data-label="Tipo de Reaproveitamento">Reutilização de material</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Papel e papelão</td><td data-label="Origem">Agricultura (flores)</td><td data-label="Destino">Empresa de gestão de resíduos</td><td data-label="Tipo de Reaproveitamento">Reciclagem</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Caixa de papelão</td><td data-label="Origem">Indústria química</td><td data-label="Destino">Empacotadora</td><td data-label="Tipo de Reaproveitamento">Produção de embalagens</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Resíduo alimentar</td><td data-label="Origem">Padaria</td><td data-label="Destino">Criação de aves</td><td data-label="Tipo de Reaproveitamento">Ração</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Serragem</td><td data-label="Origem">Indústria de cosméticos</td><td data-label="Destino">Criação de aves</td><td data-label="Tipo de Reaproveitamento">Reutilização como material de infraestrutura</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Madeira</td><td data-label="Origem">Agricultura (flores)</td><td data-label="Destino">Empresa de móveis</td><td data-label="Tipo de Reaproveitamento">Fabricação de móveis</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Plástico</td><td data-label="Origem">Indústria química (filmes de polietileno agrícolas)</td><td data-label="Destino">Agricultura (flores)</td><td data-label="Tipo de Reaproveitamento">Reutilização agrícola</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Madeira</td><td data-label="Origem">Empresa de móveis</td><td data-label="Destino">Indústria de madeira</td><td data-label="Tipo de Reaproveitamento">Reutilização na produção</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Resíduos de madeira</td><td data-label="Origem">Padaria</td><td data-label="Destino">Indústria de madeira</td><td data-label="Tipo de Reaproveitamento">Reutilização na produção</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Xarope</td><td data-label="Origem">Padaria</td><td data-label="Destino">Empresa de gestão de resíduos orgânicos</td><td data-label="Tipo de Reaproveitamento">Destinação e possível reciclagem</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Lama</td><td data-label="Origem">Empresa de gestão de resíduos orgânicos</td><td data-label="Destino">Indústria de laticínios</td><td data-label="Tipo de Reaproveitamento">Fertilizante</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Resíduos de café</td><td data-label="Origem">Empresa de gestão de resíduos orgânicos</td><td data-label="Destino">Agricultura (cogumelos)</td><td data-label="Tipo de Reaproveitamento">Biofertilizante</td></tr>
+    </tbody>
+</table>
+
+<!-- Tabela Kalundborg -->
+<table>
+    <h3 style="text-align: center; margin-bottom: 20px;">Tabela III - Análise de Simbiose Industrial em Kalundborg</h3>
+    <thead>
+        <tr><th>Tipo de Resíduo</th><th>Origem</th><th>Destino</th><th>Tipo de Reaproveitamento</th></tr>
+    </thead>
+    <tbody>
+        <tr><td data-label="Tipo de Resíduo">Produtos em pó descartados</td><td data-label="Origem">Indústria química e farmacêutica</td><td data-label="Destino">Indústria de biogás</td><td data-label="Tipo de Reaproveitamento">Produção de biogás</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Etanol</td><td data-label="Origem">Indústria farmacêutica</td><td data-label="Destino">Empresa de saneamento e biogás</td><td data-label="Tipo de Reaproveitamento">Geração de energia</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Areia</td><td data-label="Origem">Indústria farmacêutica</td><td data-label="Destino">Indústria de biogás</td><td data-label="Tipo de Reaproveitamento">Uso como material filtrante</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Etanol</td><td data-label="Origem">Indústria farmacêutica</td><td data-label="Destino">Indústria de biogás</td><td data-label="Tipo de Reaproveitamento">Produção de biogás</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Etanol</td><td data-label="Origem">Empresa de saneamento e biogás</td><td data-label="Destino">Indústria de biogás</td><td data-label="Tipo de Reaproveitamento">Produção de biogás</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Biomassa</td><td data-label="Origem">Empresa de biotecnologia</td><td data-label="Destino">Indústria de biogás</td><td data-label="Tipo de Reaproveitamento">Digestão anaeróbica para biogás</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Óleo lubrificante usado</td><td data-label="Origem">Fábrica de proteína</td><td data-label="Destino">Refinaria</td><td data-label="Tipo de Reaproveitamento">Re-refino para produção de óleo base</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Fração de fundo</td><td data-label="Origem">Refinaria</td><td data-label="Destino">Fábrica de proteína</td><td data-label="Tipo de Reaproveitamento">Uso como insumo energético</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Resíduos de amostras</td><td data-label="Origem">Empresa de inspeção e teste</td><td data-label="Destino">Refinaria</td><td data-label="Tipo de Reaproveitamento">Recuperação de compostos químicos</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Resíduo</td><td data-label="Origem">Fornecimento de água e aquecimento</td><td data-label="Destino">Gestão de resíduos</td><td data-label="Tipo de Reaproveitamento">Tratamento e descarte adequado</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Resíduo</td><td data-label="Origem">Prefeitura</td><td data-label="Destino">Gestão de resíduos</td><td data-label="Tipo de Reaproveitamento">Coleta e disposição final</td></tr>
+        <tr><td data-label="Tipo de Resíduo">Material orgânico</td><td data-label="Origem">Indústria de bioetanol, lignina e prebióticos</td><td data-label="Destino">Indústria de biogás</td><td data-label="Tipo de Reaproveitamento">Fabricação para produção de biogás</td></tr>
+    </tbody>
+</table>
+
+        </div>
+    </main>
+    
+    <footer>
+        <div id="footer_items">
+            <span id="copyright">&copy 2025 Simbiose Industrial</span>
+            <div class="social-media-buttons">
+                <a href="https://github.com/cavalhieriluisa">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById("mobile_btn").addEventListener("click", function() {
+            document.getElementById("mobile_menu").classList.toggle("active");
+        });
+    </script>
+</body>
+</html>
+
+

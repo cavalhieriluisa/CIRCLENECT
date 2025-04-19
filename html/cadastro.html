@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="../img/logo2.png">
+    <title>CIRCLENECT</title>
+
+    <style>
+
+        header{
+            margin-bottom: 10px;
+        }
+
+        footer{
+            margin-top: 10px;
+        }
+       #login_button {
+    display: block; /* Garante que o botão sempre apareça */
+    background-color: #fff;
+    border: 1px solid #026b6b;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    #login_button {
+        display: block; /* Mantém visível no mobile */
+        width: 100px; /* Ajuste conforme necessário */
+        text-align: center;
+    }
+}
+body {
+    min-height: 100vh;
+    background-color: #E8F5E9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo na página */
+}
+
+#content {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: auto; /* Mantém centralizado */
+}
+
+.section-title {
+    font-size: 22px;
+    color: #026b6b;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input:focus {
+    border-color:  #026b6b;
+    outline: none;
+}
+
+button {
+    background-color: #026b6b;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #026b6b;
+}
+
+p {
+    font-size: 14px;
+}
+p a:hover {
+    text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+    #navbar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #login_button {
+        display: block !important; /* Garante que o botão seja visível */
+        width: auto; 
+        margin-top: 10px;
+    }
+
+    #mobile_menu {
+        display: flex; /* Garante que o menu apareça */
+        justify-content: center;
+        width: 100%;
+    }
+}
+footer {
+    position:relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+}
+
+  </style>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <img src="../img/logo.png" alt="Logo" id="nav_logo" style="height: 100px;">
+            <span style="font-size: 1.5rem; color: antiquewhite;">CIRCLENECT</span>
+             <button id="login_button" class="btn-default">
+                <a href="index.html" style="color: rgb(40, 39, 39); text-decoration: none;">Inicio</a>
+            </button>
+        </nav>   
+        
+    </header>
+
+    <main id="content">
+        <section>
+            <h2 class="section-title">Cadastro de Usuário</h2>
+            <form action="php/cadastro.php" method="POST" onsubmit="return validarFormulario()">
+                <label for="company_name">Nome da empresa:</label>
+                <input type="text" id="company_name" name="company_name" required placeholder="CAMPO OBRIGATÓRIO">
+                
+                <label for="cnpj">CNPJ:</label>
+                <input type="text" id="cnpj" name="cnpj" required placeholder="CAMPO OBRIGATÓRIO">
+                
+                <label for="responsavel">Nome do responsável:</label>
+                <input type="text" id="responsavel" name="responsavel" required placeholder="CAMPO OBRIGATÓRIO">
+                
+                <label for="telefone">Telefone para contato:</label>
+                <input type="text" id="telefone" name="telefone" required placeholder="CAMPO OBRIGATÓRIO">
+                
+                <label for="rua">Rua:</label>
+                <input type="text" id="rua" name="rua" required placeholder="CAMPO OBRIGATÓRIO">
+                
+                <label for="municipio">Município:</label>
+                <input type="text" id="municipio" name="municipio" required placeholder="CAMPO OBRIGATÓRIO">
+                
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado" required placeholder="CAMPO OBRIGATÓRIO">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="CAMPO OBRIGATÓRIO">
+                
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required placeholder="CAMPO OBRIGATÓRIO">
+                
+                <button type="submit" class="btn-default">Cadastrar</button>
+            </form>
+            <p>Já possui uma conta? <a href="login.php" style="color:  #026b6b; text-decoration: none;">Faça login</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer_items">
+            <span id="copyright">
+                &copy 2025 Simbiose Industrial
+            </span>
+
+            <div class="social-media-buttons">
+                <a href="https://github.com/cavalhieriluisa">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

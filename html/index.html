@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="icon" type="image/png" href="../img/logo2.png">
+
+    <title>CIRCLENECT</title>
+    <style>
+
+
+#mobile_btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #nav_list {
+        display: none; /* Esconde no mobile */
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #nav_list.active {
+        display: flex; /* Exibe ao ativar */
+    }
+
+    #mobile_btn {
+        display: block;
+    }
+}
+
+
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+           
+        }
+
+        section {
+            height: 100vh; 
+            font-size: larger;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        #home {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            min-height: calc(100vh - 91px);
+            padding: 0 5%;
+            position: relative;
+           background-color:  #81d4d4;
+        }
+
+        #cta {
+    width: 100%; 
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    z-index: 2;
+    padding-left: 0%; 
+}
+
+@media screen and (max-width: 1170px) {
+    #cta {
+        width: 80%;
+        text-align: center;
+        padding-left: 0; /* Centraliza o texto em telas menores */
+    }
+}
+
+        #cta .title {
+            font-size: 3rem;
+            color: black;
+        }
+
+        #cta .title span {
+            color: #026b6b;
+        }
+
+        #cta .description {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        #cta_buttons {
+            display: flex;
+            gap: 24px;
+        }
+
+        #banner {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        #banner img {
+            max-width: 100%;
+            height: auto;
+            position: relative;
+           
+        }
+
+        .shape {
+            background-color: aliceblue;
+            width: 60%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            border-radius: 50% 0 0 50%;
+        }
+
+        @media screen and (max-width: 1170px) {
+            #home {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #banner, #banner img {
+                width: 50%;
+                justify-content: center;
+            }
+
+            #cta {
+                width: 100%;
+                align-items: center;
+            }
+        }
+        .slider-wrapper {
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+                max-width: 1000px;
+                margin: 40px auto;
+              }
+          
+              .card-slider {
+                display: flex;
+                transition: transform 0.4s linear;
+                will-change: transform;
+              }
+          
+              .card {
+                flex: 0 0 300px;
+                margin-right: 20px;
+                position: relative;
+                overflow: hidden;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+                transition: transform 0.3s ease;
+              }
+          
+              .card:hover {
+                transform: scale(1.03);
+              }
+          
+              .card img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                display: block;
+                transition: transform 0.3s ease;
+              }
+          
+              .card:hover img {
+                transform: scale(1.05);
+              }
+          
+              .caption {
+                position: absolute;
+                bottom: -100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(255, 255, 255, 0.85);
+                color: #333;
+                padding: 15px;
+                text-align: center;
+                font-size: 1.1rem;
+                font-weight: 500;
+                transition: bottom 0.4s ease;
+              }
+          
+              .card:hover .caption {
+                bottom: 0;
+              }
+          
+              @media (max-width: 768px) {
+                .card {
+                  flex: 0 0 80%;
+                }
+              }
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <img src="../img/logo.png" alt="Logo" id="nav_logo" style="height: 100px; ">
+            <span style="font-size: 1.5rem; color: antiquewhite;">CIRCLENECT</span>
+    
+            <ul id="nav_list">
+                <li class="nav-item ">
+                    <a href="#home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#empresas">Empresas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#materiais">Materiais</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#educacao">Saiba Mais</a>
+                </li>
+                
+            </ul>
+
+            <button id="login_button" class="btn-default">
+                <a href="login.php" style="color: inherit; text-decoration: none;">Login</a>
+            </button>
+
+            <button id="mobile_btn">
+                    <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </nav>
+                <div id="mobile_menu">
+                    <ul id="mobile_nav_list">
+                        <li class="nav-item active">
+                            <a href="#home">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#empresas">Empresas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#materiais">Materiais</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#educacao">Saiba Mais</a>
+                        </li>
+                    </ul>
+        
+                    <button id="login_button" class="btn-default">
+                       <a href="login.php" style="color: inherit; text-decoration: none;">Login</a>
+                    </button>
+                </div>
+    </header>
+    
+    <main id="content">
+        <section id="home">
+            <div class="shape"></div>
+                 <div id="cta">
+                    <h1 class="title">
+                        Conectando Indústrias para a
+                        <span>Sustentabilidade</span>
+                    </h1>
+
+                    <p class="description">
+                        Descubra como a Plataforma de Simbiose Industrial pode ajudar sua empresa a compartilhar recursos e reduzir custos.
+                    </p>
+
+                    <div id="cta_buttons">
+                        <a href="#empresas" class="btn-default">
+                            Ver Empresas
+                        </a>
+
+                        <a href="#materiais" class="btn-default">
+                            Ver Materiais
+                        </a>
+                        
+                    </div>
+                </div>
+            <div id="banner">
+                <img src="../img/logo2.png" alt="logo2">
+            </div>
+        </section>
+
+        <section id="empresas">
+            <h2 class="section-title">Empresas Participantes</h2>
+            <h3 class="section-subtitle">Conexões em Ação</h3>
+
+            <div id="companies" class="card-container">
+                <div class="company card">
+                    <h3>Empresa A</h3>
+                    <p>Focada na reutilização de materiais plásticos.</p>
+                </div>
+                <div class="company card">
+                    <h3>Empresa B</h3>
+                    <p>Especialista em reciclagem de metais industriais.</p>
+                </div>
+                <div class="company card">
+                    <h3>Empresa C</h3>
+                    <p>Provedora de resíduos orgânicos para compostagem.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="materiais">
+            <h2>Materiais Disponíveis</h2>
+            <h3>Recursos para Compartilhar</h3>
+          
+            <div class="slider-wrapper">
+              <div class="card-slider" id="cardSlider">
+                <div class="card"><img src="../img/Imagens/Adubo.jpg"><div class="caption">Adubo orgânico</div></div>
+                <div class="card"><img src="../img/Imagens/Biomassa.jpg"><div class="caption">Biomassa vegetal</div></div>
+                <div class="card"><img src="../img/Imagens/Cereais.jpg"><div class="caption">Cereais excedentes</div></div>
+                <div class="card"><img src="../img/Imagens/FIbra orgânica.jpg"><div class="caption">Fibra orgânica</div></div>
+                <div class="card"><img src="../img/Imagens/Resto de cereais.jpg"><div class="caption">Restos de cereais</div></div>
+                <div class="card"><img src="../img/Imagens/Resto de embalagens.jpg"><div class="caption">Resíduos de embalagens</div></div>
+                <div class="card"><img src="../img/Imagens/Serragem.jpg"><div class="caption">Serragem de madeira</div></div>
+                <div class="card"><img src="../img/Imagens/Adubo.jpg"><div class="caption">Adubo orgânico</div></div>
+                <div class="card"><img src="../img/Imagens/Biomassa.jpg"><div class="caption">Biomassa vegetal</div></div>
+                <div class="card"><img src="../img/Imagens/Cereais.jpg"><div class="caption">Cereais excedentes</div></div>
+              </div>
+            </div>
+          
+            <script>
+              const slider = document.getElementById('cardSlider');
+              let scrollAmount = 0;
+          
+              function infiniteScroll() {
+                const cardWidth = slider.querySelector('.card').offsetWidth + 20; // +20px margin
+                scrollAmount += 1;
+          
+                if (scrollAmount >= slider.scrollWidth / 2) {
+                  scrollAmount = 0;
+                  slider.style.transition = 'none';
+                  slider.style.transform = `translateX(0px)`;
+                  requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                      slider.style.transition = 'transform 0.4s linear';
+                    });
+                  });
+                } else {
+                  slider.style.transform = `translateX(-${scrollAmount}px)`;
+                }
+              }
+              setInterval(infiniteScroll, 20);
+            </script>
+          </section>
+        <section id="educacao">
+            <h3>Aprenda sobre Simbiose Industrial</h3>
+            <p>Explore conceitos e benefícios da economia circular para sua indústria.</p>
+            <a href="https://docs.google.com/document/d/1lmw978wRXuB_wHPvFXUmrrYWVy8XHDAsnqOjpzNkCmw/edit?tab=t.0" class="btn-default" style="color: inherit; text-decoration: none;">Saiba Mais</a>
+        </section>
+    </main>
+
+    <footer>
+        <div id="footer_items">
+            <span id="copyright">
+                &copy 2025 Simbiose Industrial
+            </span>
+
+            <div class="social-media-buttons">
+                <a href="https://github.com/cavalhieriluisa">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById("mobile_btn").addEventListener("click", function() {
+            document.getElementById("mobile_menu").classList.toggle("active");
+        });
+    
+    </script>
+</body>
+</html>
