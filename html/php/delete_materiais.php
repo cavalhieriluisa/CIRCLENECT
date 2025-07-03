@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "simbiose_industrial";
+$dbname = "circlenect";
 
 $connection = new mysqli($servername, $username, $password, $dbname);
 

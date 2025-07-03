@@ -2,24 +2,26 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "simbiose_industrial";
+$dbname = "circlenect";
 
 $connection = new mysqli($servername, $username, $password, $dbname);
 if ($connection->connect_error) {
-    die("Conexão falhou: " . $connection->connect_error);
+    die("Conexão falhou: " . $connection->connect_error);    
 }
 
 $search = isset($_POST['search']) ? $connection->real_escape_string($_POST['search']) : '';
 
-$query = "SELECT pu.*, m.telefone AS telefone_material FROM pesquisa_unificada pu
-          LEFT JOIN materiais m ON pu.email = m.email";
-
 if (!empty($search)) {
-    $query .= " WHERE pu.company_name LIKE '%$search%' 
-                OR pu.nome_material LIKE '%$search%' 
-                OR pu.categoria LIKE '%$search%' 
-                OR pu.municipio LIKE '%$search%' 
-                OR pu.estado LIKE '%$search%'";
+    $query = "SELECT pu.*, m.telefone AS telefone_material FROM pesquisa_unificada pu
+              LEFT JOIN materiais m ON pu.email = m.email 
+              WHERE pu.company_name LIKE '%$search%' 
+              OR pu.nome_material LIKE '%$search%' 
+              OR pu.categoria LIKE '%$search%' 
+              OR pu.municipio LIKE '%$search%' 
+              OR pu.estado LIKE '%$search%'";
+} else {
+    $query = "SELECT pu.*, m.telefone AS telefone_material FROM pesquisa_unificada pu
+              LEFT JOIN materiais m ON pu.email = m.email";
 }
 
 $result = $connection->query($query);
@@ -46,9 +48,9 @@ if ($result->num_rows > 0) {
                 <td>" . htmlspecialchars($row['categoria']) . "</td>
                 <td>" . htmlspecialchars($row['disponibilidade']) . "</td>
                 <td>R$ " . number_format($row['preco'], 2, ',', '.') . "</td>
-                 <td>
-                            <button class='like-btn $curtido' data-id='" . $row['id'] . "' onclick='toggleCurtida(this)'>" . ($curtido ? '❤' : '♡') . "</button>
-                          </td>
+                <td>
+                  <button class='like-btn $curtido' data-id='" . $row['id'] . "' onclick='toggleCurtida(this)'>" . ($curtido ? '❤' : '♡') . "</button>
+                </td>
               </tr>";
     }
     echo "</tbody></table>";

@@ -179,44 +179,48 @@ footer {
         </form>
         
         <?php
-        session_start();
-        require './php/config.php';
+session_start();
+require './php/config.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = mysqli_real_escape_string($conn, $_POST["username"]);
+    $password = $_POST["password"];
+
+    $sql = "SELECT * FROM usuarios WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
         
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $email = mysqli_real_escape_string($conn, $_POST["username"]);
-            $password = $_POST["password"];
-            
-            $sql = "SELECT * FROM usuarios WHERE email = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("s", $email);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            
-            if ($result->num_rows > 0) {
-                $user = $result->fetch_assoc();
-                if (password_verify($password, $user["password"])) {
-                    $_SESSION["usuario"] = $user["email"];
-                    header("Location: telaprincipal.php");
-                    exit();
-                } else {
-                    echo "<p style='color:red;'>Senha incorreta!</p>";
-                }
-            } else {
-                echo "<p style='color:red;'>Usuário não encontrado!</p>";
-            }
-            
-            $stmt->close();
+        if (password_verify($password, $user["password"])) {
+            // ✅ Salvando o ID do usuário na sessão corretamente
+            $_SESSION["id_usuario"] = $user["id"];
+            $_SESSION["usuario"] = $user["email"];
+
+            header("Location: telaprincipal.php");
+            exit();
+        } else {
+            echo "<p style='color:red;'>Senha incorreta!</p>";
         }
-        $conn->close();
-        ?>
-        
+    } else {
+        echo "<p style='color:red;'>Usuário não encontrado!</p>";
+    }
+
+    $stmt->close();
+}
+$conn->close();
+?>
+
         <p>Não possui uma conta? <a href="cadastro.html" style="color: #04bfbf; text-decoration: none;">Cadastre-se</a></p>
     </main>
 
     <footer>
         <div id="footer_items">
             <span id="copyright">
-                &copy 2025 Simbiose Industrial
+                &copy 2025 CIRCLENECT
             </span>
 
             <div class="social-media-buttons">
